@@ -1,12 +1,17 @@
 import { Alert, View } from "react-native";
 
 import { Categories, CategoriesProps } from "@/components/categories";
+import { PlaceProps } from "@/components/place";
+import { Places } from "@/components/places";
 import { api } from "@/services/api";
 import { useEffect, useState } from "react";
+
+type MarketsProps = PlaceProps;
 
 export default function Home() {
   const [categories, setCategories] = useState<CategoriesProps>([]);
   const [category, setCategory] = useState("");
+  const [markets, setMarkets] = useState<MarketsProps[]>([]);
   async function fetchCategories() {
     try {
       const { data } = await api.get("/categories");
@@ -18,17 +23,34 @@ export default function Home() {
     }
   }
 
+  async function fetchMarkets() {
+    try {
+      if (!category) return;
+      const { data } = await api.get(`/markets/category/${category}`);
+      setMarkets(data);
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Estabelecimentos", "Erro ao buscar estabelecimentos");
+    }
+  }
+
   useEffect(() => {
     fetchCategories();
   }, []);
 
+  useEffect(() => {
+    fetchMarkets();
+  }, [category]);
+
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#ccc" }}>
       <Categories
         data={categories}
         selected={category}
         onSelect={setCategory}
       />
+
+      <Places data={markets} />
     </View>
   );
 }
