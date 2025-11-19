@@ -1,17 +1,33 @@
-import { Alert, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 
 import { Categories, CategoriesProps } from "@/components/categories";
 import { PlaceProps } from "@/components/place";
 import { Places } from "@/components/places";
 import { api } from "@/services/api";
+import { colors } from "@/styles/colors";
+import { fontFamily } from "@/styles/font-family";
 import { useEffect, useState } from "react";
+import MapView, { Callout, Marker } from "react-native-maps";
 
-type MarketsProps = PlaceProps;
+type MarketsProps = PlaceProps & {
+  latitude: number;
+  longitude: number;
+};
+type LocationProps = {
+  latitude: number;
+  longitude: number;
+};
+
+const currentLocation = {
+  latitude: -23.561187293883442,
+  longitude: -46.656451388116494,
+};
 
 export default function Home() {
   const [categories, setCategories] = useState<CategoriesProps>([]);
   const [category, setCategory] = useState("");
   const [markets, setMarkets] = useState<MarketsProps[]>([]);
+
   async function fetchCategories() {
     try {
       const { data } = await api.get("/categories");
@@ -49,6 +65,60 @@ export default function Home() {
         selected={category}
         onSelect={setCategory}
       />
+
+      <MapView
+        style={{ flex: 1 }}
+        initialRegion={{
+          latitude: currentLocation.latitude,
+          longitude: currentLocation.longitude,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        }}
+      >
+        <Marker
+          identifier="current"
+          coordinate={{
+            latitude: currentLocation.latitude,
+            longitude: currentLocation.longitude,
+          }}
+          image={require("@/assets/location.png")}
+        />
+
+        {markets.map((market) => (
+          <Marker
+            key={market.id}
+            identifier={market.id}
+            coordinate={{
+              latitude: market.latitude,
+              longitude: market.longitude,
+            }}
+            image={require("@/assets/pin.png")}
+          >
+            <Callout>
+              <View>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: colors.gray[600],
+                    fontFamily: fontFamily.medium,
+                  }}
+                >
+                  {market.name}
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 12,
+                    color: colors.gray[600],
+                    fontFamily: fontFamily.regular,
+                  }}
+                >
+                  {market.address}
+                </Text>
+              </View>
+            </Callout>
+          </Marker>
+        ))}
+      </MapView>
 
       <Places data={markets} />
     </View>
