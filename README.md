@@ -2,6 +2,7 @@
 
 Mobile application built with React Native and Expo to discover nearby businesses and coupons.
 
+
 **Main stack:** React Native · Expo · TypeScript · expo-router
 
 ---
@@ -33,6 +34,32 @@ Nearby is an Expo/React Native project focused on locating places and displaying
 
 Note: the project uses the Expo SDK version defined in `package.json` — make sure your global tools are compatible with that SDK when necessary.
 
+## Backend (API)
+
+- Nearby communicates with a separate Node.js/Express REST API responsible for:
+
+- registering businesses and markets
+- delivering coupons and nearby locations
+- serving data to the mobile app
+
+## Repository link:
+
+➡ https://github.com/pedrosilvaadev/nearby-api
+
+Running the API
+git clone https://github.com/pedrosilvaadev/nearby-api
+cd nearby-api
+npm install
+npm run dev
+
+Once the API is running, update your .env in this project:
+
+BASE_URL=http://YOUR_LOCAL_IP:3333
+
+Restart Expo with cache reset:
+
+npx expo start -c
+
 ## Installation
 
 1. Clone the repository:
@@ -49,6 +76,8 @@ npm install
 # or
 yarn
 ```
+
+
 
 ## Running the app (development)
 
