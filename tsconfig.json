@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "typeRoots": [
+      "./@types",
+      "./node_modules/@types"
+    ],
     "strict": true,
     "baseUrl": ".",
     "paths": {
@@ -13,6 +17,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts"
+    "expo-env.d.ts",
+    "src/types/env.d.ts"
   ]
 }
