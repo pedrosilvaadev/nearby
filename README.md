@@ -1,19 +1,3 @@
-Nearby
-
-Mobile application built with React Native and Expo to discover nearby businesses and coupons.
-
-Main stack: React Native, Expo, TypeScript, expo-router.
-
-Table of contents
-
-Description
-
-Prerequisites
-
-Installation
-
-<!--- README for Nearby (polished) --->
-
 # Nearby
 
 Mobile application built with React Native and Expo to discover nearby businesses and coupons.
