@@ -2,7 +2,6 @@
 
 Mobile application built with React Native and Expo to discover nearby businesses and coupons.
 
-
 **Main stack:** React Native · Expo · TypeScript · expo-router
 
 ---
@@ -77,8 +76,6 @@ npm install
 yarn
 ```
 
-
-
 ## Running the app (development)
 
 Start Metro / Expo DevTools:
@@ -116,39 +113,8 @@ This project uses .env to configure environment-sensitive values such as API URL
 ## 1. Create a .env file in the project root
 
 ```ts
-   BASE_URL=http://192.168.0.12:3333
+   EXPO_PUBLIC_BASE_URL=http://192.168.0.12:3333
 ```
-
-## 2. Make sure your babel.config.js has:
-
-```ts
-plugins: [
-  [
-    "react-native-dotenv",
-    {
-      moduleName: "@env",
-      path: ".env",
-    },
-  ],
-];
-```
-
-## 3. Using the environment variable in code
-
-```ts
-import { BASE_URL } from "@env";
-
-export const api = axios.create({
-  baseURL: BASE_URL,
-  timeout: 700,
-});
-```
-
-## 4. Prevent accidental commits
-
-Add .env to .gitignore:
-
-.env
 
 ## A .env.example file is included to document the available variables.
 
