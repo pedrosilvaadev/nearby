@@ -6,6 +6,7 @@ import { Places } from "@/components/places";
 import { api } from "@/services/api";
 import { colors } from "@/styles/colors";
 import { fontFamily } from "@/styles/font-family";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import MapView, { Callout, Marker } from "react-native-maps";
 
@@ -94,7 +95,14 @@ export default function Home() {
             }}
             image={require("@/assets/pin.png")}
           >
-            <Callout>
+            <Callout
+              onPress={() =>
+                router.push({
+                  pathname: "/market/[id]",
+                  params: { id: String(market.id) },
+                })
+              }
+            >
               <View>
                 <Text
                   style={{
