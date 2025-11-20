@@ -4,6 +4,14 @@ Mobile application built with React Native and Expo to discover nearby businesse
 
 **Main stack:** React Native · Expo · TypeScript · expo-router
 
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/402ac752-6f45-4565-94e0-6ecd2c29d47f" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/949573f3-da38-4fd5-b868-d7e02c1e557d" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/9a454614-3dc6-404e-8c94-03215abafa83" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/548ac205-b96b-44d2-ba99-4dd6b291838c" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/ba8fa121-ce7b-4cae-9e92-b2c28054d883" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/45b7c286-0958-4074-a02b-08c774d0fe2b" />
+<img width="320" height="620" alt="image" src="https://github.com/user-attachments/assets/5e374c00-07c7-482c-818d-73891aed10f9" />
+
 ---
 
 ## Table of contents
