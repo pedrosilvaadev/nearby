@@ -23,9 +23,6 @@ Mobile application built with React Native and Expo to discover nearby businesse
 - [Environment / API configuration](#environment--api-configuration)
 - [Project structure](#project-structure)
 - [Useful scripts](#useful-scripts)
-- [Development tips](#development-tips)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
@@ -154,13 +151,5 @@ Example:
 ```bash
 npm run android
 ```
-
----
-
-## Development tips
-
-- Use the Expo DevTools to inspect logs and enable fast refresh.
-- For changes requiring native code, follow Expo docs for `expo prebuild` or use `eas build` for production builds.
-- If you use `react-native-reanimated`, verify the installation steps in the library docs (Babel plugin and main app entry config).
 
 ---
